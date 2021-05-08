@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  overscroll-behavior-y: none;
+  font-family: "Helvetica";
+}
+
+body * {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}

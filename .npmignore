@@ -1,0 +1,17 @@
+.cache-loader
+.editorconfig
+.gitattributes
+.gitignore
+.prettierrc
+
+dist
+example
+src
+
+template.ejs
+tsconfig.json
+tsconfig-*.json
+webpack
+yarn.lock
+
+*.log
