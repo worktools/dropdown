@@ -69,7 +69,7 @@ let DropdownMenu: FC<IDropdownMenuProps> = (props) => {
     return inputElement;
   }
 
-  const [debouncedChange] = useDebouncedCallback((val: string, event: React.ChangeEvent<HTMLInputElement>) => {
+  const debouncedChange = useDebouncedCallback((val: string, event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
     if (props.onSearch) {
       props.onSearch(val, event);
