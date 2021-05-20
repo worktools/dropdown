@@ -4,7 +4,7 @@ import { rowMiddle, center } from "@worktools/flex-styles";
 
 import { ClampText } from "@worktools/jimo-basics";
 import { GlobalThemeVariables } from "./theme";
-import { ChevronLeft, ChevronDown } from "react-feather";
+import { ChevronLeft, ChevronDown, ChevronRight } from "react-feather";
 
 let countAll = (xs: IMenuTreeItem[]): number => {
   if (xs == null) {
@@ -58,7 +58,8 @@ let MenuTreeItem: FC<{
       >
         <div className={cx(center, stylePrepend)}>
           {children.length == 0 ? null : folded ? (
-            <ChevronLeft
+            <ChevronRight
+              size={16}
               onClick={(event: React.MouseEvent) => {
                 event.stopPropagation();
                 setFolded(false);
@@ -66,6 +67,7 @@ let MenuTreeItem: FC<{
             />
           ) : (
             <ChevronDown
+              size={16}
               onClick={(event: React.MouseEvent) => {
                 event.stopPropagation();
                 setFolded(true);

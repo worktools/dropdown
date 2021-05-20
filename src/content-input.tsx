@@ -33,13 +33,14 @@ let ContentInput: FC<{
         )}
       </span>
       <ChevronDown
-        color="blue"
+        size={16}
+        color="hsl(0deg 0% 88%)"
         className={cx(styleIcon, GlobalThemeVariables.contentInputIcon)}
         style={props.isActive ? { transform: "rotate(180deg)" } : null}
       />
       {props.allowClear && props.content != null ? (
         <X
-          color="blue"
+          color="hsl(0deg 0% 88%)"
           className={cx(styleRemoveIcon, GlobalThemeVariables.contentInputRemoveIcon, "allow-clear")}
           onClick={(event) => {
             event.stopPropagation();
@@ -75,11 +76,11 @@ let styleContainer = css`
     border-color: #3674ff;
   }
 
-  i.allow-clear.jimo-icon {
+  .allow-clear {
     opacity: 0;
   }
 
-  &:hover i.allow-clear.jimo-icon {
+  &:hover .allow-clear {
     opacity: 1;
   }
 `;
