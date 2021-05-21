@@ -6,7 +6,7 @@ import { useDropdownArea } from "../../src/dropdown-area";
 let DemoHooksArea: FC<{}> = React.memo((props) => {
   /** Plugins */
 
-  let [ui, triggerRef, openMenu, closeMenu, internalState] = useDropdownArea({
+  let dropdown = useDropdownArea({
     renderContent: () => {
       return <div>Some content in menu</div>;
     },
@@ -20,14 +20,14 @@ let DemoHooksArea: FC<{}> = React.memo((props) => {
       <DocDemo title="Hook example for dropdown area">
         <DocBlock content={content} />
         <button
-          ref={triggerRef as Ref<any>}
+          ref={dropdown.triggerEl as Ref<any>}
           onClick={(event) => {
-            openMenu();
+            dropdown.openMenu();
           }}
         >
           open menu
         </button>
-        {ui}
+        {dropdown.ui}
 
         <DocSnippet code={code} />
       </DocDemo>
@@ -38,7 +38,7 @@ let DemoHooksArea: FC<{}> = React.memo((props) => {
 export default DemoHooksArea;
 
 let code = `
-let [ui, triggerRef, openMenu, closeMenu, internalState] = useDropdownArea({
+let dropdown = useDropdownArea({
   renderContent: () => {
     return <div>Some content in menu</div>;
   },
@@ -46,15 +46,15 @@ let [ui, triggerRef, openMenu, closeMenu, internalState] = useDropdownArea({
 
 <div>
   <button
-    ref={triggerRef as Ref<any>}
+    ref={dropdown.triggerEl as Ref<any>}
     onClick={(event) => {
-      openMenu();
+      dropdown.openMenu();
       event.stopPropagation();
     }}
   >
     open menu
   </button>
-  {ui}
+  {dropdown.ui}
 </div>
 `;
 

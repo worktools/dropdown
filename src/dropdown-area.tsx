@@ -309,17 +309,17 @@ export let useDropdownArea = (props: IUseDropdownAreaProps) => {
     visible,
   };
 
-  return [ui, triggerEl, openMenu, onUserClose, internalState] as [ReactNode, Ref<HTMLDivElement>, typeof openMenu, typeof onUserClose, typeof internalState];
+  return { ui, triggerEl, openMenu, onUserClose, internalState };
 };
 
 let DropdownArea: FC<IProps> = React.memo((props) => {
-  let [ui, triggerEl, openMenu, onClose] = useDropdownArea(props);
+  let menu = useDropdownArea(props);
 
   /** Plugins */
   /** Methods */
 
   let onTriggerClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    openMenu();
+    menu.openMenu();
   };
 
   /** Effects */
@@ -328,20 +328,20 @@ let DropdownArea: FC<IProps> = React.memo((props) => {
   if (props.renderTrigger != null) {
     return (
       <>
-        <div className={cx(styleTrigger, props.className)} style={props.style} ref={triggerEl}>
-          {props.renderTrigger(openMenu, onClose)}
+        <div className={cx(styleTrigger, props.className)} style={props.style} ref={menu.triggerEl}>
+          {props.renderTrigger(menu.openMenu, menu.onUserClose)}
         </div>
-        {ui}
+        {menu.ui}
       </>
     );
   }
 
   return (
     <>
-      <div className={cx(styleTrigger, props.className)} style={props.style} onClick={onTriggerClick} ref={triggerEl}>
+      <div className={cx(styleTrigger, props.className)} style={props.style} onClick={onTriggerClick} ref={menu.triggerEl}>
         {props.children}
       </div>
-      {ui}
+      {menu.ui}
     </>
   );
 });
