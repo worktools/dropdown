@@ -41,8 +41,8 @@ let DemoDropdownArea: FC<{}> = (props) => {
 
       <DocDemo title="Align to right but narrow">
         <DocSnippet code={codeAlignRight} />
-        <DropdownArea width={90} className={styleTrigger} renderContent={(onClose) => "Some content"} hideClose alignToRight>
-          <div>Align to right but narrow</div>
+        <DropdownArea width={90} className={styleTrigger} renderContent={(onClose) => "Some content, Align to right but narrow"} hideClose alignToRight>
+          <div>R</div>
         </DropdownArea>
       </DocDemo>
 

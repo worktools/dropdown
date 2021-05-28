@@ -322,7 +322,6 @@ let DropdownArea: FC<IProps> = React.memo((props) => {
   /** Methods */
 
   let onTriggerClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    event.stopPropagation();
     menu.openMenu();
   };
 
