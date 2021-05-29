@@ -16,6 +16,8 @@ import { GlobalThemeVariables } from "./theme";
 
 type FuncVoid = () => void;
 
+let minCardWidth = 220;
+
 interface IUseDropdownAreaProps {
   title?: string;
   /** 弹出的卡片的样式 */
@@ -89,8 +91,8 @@ export let useDropdownArea = (props: IUseDropdownAreaProps) => {
     let cardHeight = cardEl.current.offsetHeight;
 
     // 计算过程当中, 宽度还没准确设定好, 按照设定逻辑提前计算
-    // props.width 或者按照触发元素的宽度, 但是最小值 100px
-    let cardWidth = Math.max(props.width || rect.width, 100);
+    // props.width 或者按照触发元素的宽度, 但是最小值 220px(TODO 仍然可能存在特殊情况)
+    let cardWidth = props.width != null ? props.width : Math.max(rect.width, minCardWidth);
 
     // 如果计算宽度超出显示区域, 往左弹出
     let almostOut = false;
@@ -260,6 +262,7 @@ export let useDropdownArea = (props: IUseDropdownAreaProps) => {
             style={{
               overflow: "auto",
               width: props.width || inheritedWidth,
+              minWidth: props.width, // overwrite value from CSS
               top: position.top,
               left: position.left,
               ...props.cardStyle,
@@ -393,7 +396,7 @@ let stylePopPage = css`
   background-color: white;
   box-shadow: 0px 1px 4px 0px rgba(2, 41, 128, 0.2);
 
-  min-width: 220px;
+  min-width: ${minCardWidth}px;
   min-height: 80px;
   max-height: 360px;
 
