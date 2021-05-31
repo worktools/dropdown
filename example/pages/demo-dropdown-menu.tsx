@@ -101,6 +101,18 @@ let DemoDropdownMenu: FC<{}> = (props) => {
           <DocSnippet code={codeCustom} />
         </div>
       </DocDemo>
+
+      <DocDemo title="Width dropdown menu" link={link}>
+        {/* <DocSnippet code={codeMenuCustom} /> */}
+        <DropdownMenu
+          allowClear
+          areaClassName={styleWidthArea}
+          value={selected}
+          items={items}
+          onSelect={(value) => setSelected(value as string)}
+          placeholder={"请选择"}
+        />
+      </DocDemo>
     </div>
   );
 };
@@ -217,4 +229,8 @@ let codeMenu = `
 
 let contentValue = `
 \`renderValue\` 属性, 可以用来重新定义 value 位置现实的具体内容. 幕刃情况下直接显示 value.
+`;
+
+let styleWidthArea = css`
+  width: 100%;
 `;
