@@ -11,9 +11,12 @@ export interface IDropdownMenuProps {
   value: MenuValue;
   items: IMenuListItem[];
   onSelect: (value: MenuValue) => void;
+  /** controls content-input since outside container is invisible */
   className?: string;
   menuClassName?: string;
   itemClassName?: string;
+  /** controls both dropdown-area and content-input node */
+  areaClassName?: string;
   placeholder?: string;
   emptyLocale?: string;
   placeholderClassName?: string;
@@ -51,7 +54,7 @@ let DropdownMenu: FC<IDropdownMenuProps> = (props) => {
     () => (
       <ContentInput
         disabled={props.disabled}
-        className={props.className}
+        className={cx(props.className, props.areaClassName)}
         content={content}
         isActive={active}
         placeholderClassName={props.placeholderClassName}
@@ -122,6 +125,7 @@ let DropdownMenu: FC<IDropdownMenuProps> = (props) => {
       hideClose={true}
       width={props.menuWidth}
       cardClassName={styleMenu}
+      className={props.areaClassName}
       adjustingPosition
       followWheel={props.followWheel}
       onExpand={(expand: boolean) => {
