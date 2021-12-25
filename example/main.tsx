@@ -22,10 +22,8 @@ window.addEventListener("hashchange", () => {
   renderApp();
 });
 
-declare var module: any;
-
-if (module.hot) {
-  module.hot.accept(["./pages/container"], () => {
+if (import.meta.hot) {
+  import.meta.hot.accept(["./pages/container"], () => {
     renderApp();
   });
 }
