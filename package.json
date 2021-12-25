@@ -33,7 +33,7 @@
     "@types/react-transition-group": "^4.4.4",
     "@types/url-parse": "^1.4.6",
     "@worktools/doc-frame": "^0.1.14-a4",
-    "@worktools/ruled-router": "^0.2.29-a1",
+    "@worktools/ruled-router": "^0.2.29-a2",
     "dayjs": "^1.10.7",
     "eventemitter3": "^4.0.7",
     "font-awesome": "^4.7.0",
